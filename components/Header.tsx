@@ -1,4 +1,5 @@
 "use client";
+import React, { Fragment, useState } from "react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import {
   ChatBubbleLeftIcon,
@@ -9,9 +10,10 @@ import {
   PlayCircleIcon,
 } from "@heroicons/react/20/solid";
 import Link from "next/link";
-import React, { Fragment, useState } from "react";
 // import { Popover } from "./ui/popover";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
+import { cn } from "@/lib/utils";
+import mainBg from "../assets/swizerland.jpg";
 
 const products = [
   {
@@ -40,9 +42,15 @@ const callsToAction = [
 ];
 
 function Header() {
-  const { mobileMenuOpen, setMobileMenuOpen } = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
-    <header className="bg-[#013B94]">
+    <header
+      className="   bg-cover bg-center  "
+      style={{
+        backgroundImage: "url(https://i.ibb.co/bHQQzhr/bg1.jpg)",
+        opacity: "0.8",
+      }}
+    >
       <nav
         className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
         aria-label="Global"
@@ -163,10 +171,10 @@ function Header() {
         <Dialog.Panel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-[#013B94] px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
             <a href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Booking.com</span>
+              <span className="sr-only">TravelTeacher</span>
               <img
                 className="h-8 w-auto"
-                src="https://static1.squarespace.com/static/5bde0f00c3c16aa95581e2e2/62b4cb1add9d257dd43bb03d/62b653fedc7c895918d19b24/1656116254983/booking+logo+white.png?format=1500w"
+                src="https://i.ibb.co/5BZcqj5/travel.png"
                 alt=""
               />
             </a>
