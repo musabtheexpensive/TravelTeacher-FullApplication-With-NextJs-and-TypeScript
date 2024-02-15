@@ -13,6 +13,32 @@ import React, { Fragment, useState } from "react";
 // import { Popover } from "./ui/popover";
 import { Dialog, Disclosure, Popover, Transition } from "@headlessui/react";
 
+const products = [
+  {
+    name: "Book a Stay",
+    description: "Get a better understanding of your traffic",
+    href: "#",
+    icon: HomeIcon,
+  },
+  {
+    name: "Book a Flight",
+    description: "Speak directly to your customers",
+    href: "#",
+    icon: PaperAirplaneIcon,
+  },
+  {
+    name: "Contact our Support Team",
+    description: "Your customers’ data will be safe and secure",
+    href: "#",
+    icon: ChatBubbleLeftIcon,
+  },
+];
+
+const callsToAction = [
+  { name: "See Demo Booking", href: "#", icon: PlayCircleIcon },
+  { name: "Contact Support", href: "#", icon: PhoneIcon },
+];
+
 function Header() {
   const { mobileMenuOpen, setMobileMenuOpen } = useState(false);
   return (
@@ -107,7 +133,24 @@ function Header() {
               </Popover.Panel>
             </Transition>
           </Popover>
+          <a href="#" className="text-sm font-semibold leading-6 text-white">
+            Flights
+          </a>
+          <a href="#" className="text-sm font-semibold leading-6 text-white">
+            Car Rentals
+          </a>
+          <a href="#" className="text-sm font-semibold leading-6 text-white">
+            Attractions
+          </a>
+          <a href="#" className="text-sm font-semibold leading-6 text-white">
+            Flight + Hotel
+          </a>
         </Popover.Group>
+        <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <a href="#" className="text-sm font-semibold leading-6 text-white">
+            Log in <span aria-hidden="true">&rarr;</span>
+          </a>
+        </div>
       </nav>
     </header>
   );
