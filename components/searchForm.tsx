@@ -3,7 +3,7 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
-import { z } from "zod";
+import * as z from "zod";
 import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import { BedDoubleIcon, CalendarIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -43,6 +43,7 @@ export const formSchema = z.object({
 
 function SearchForm() {
   const router = useRouter();
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -69,7 +70,7 @@ function SearchForm() {
     const checkin = `${checkin_year}-${checkin_month}-${checkin_monthday}`;
     const checkout = `${checkout_year}-${checkout_month}-${checkout_monthday}`;
 
-    const url = new URL("https://www.booking.com/searchresults.html");
+    const url = new URL("https://www.travelteacher.com/searchresults.html");
     url.searchParams.set("ss", values.location);
     url.searchParams.set("group_adults", values.adults);
     url.searchParams.set("group_children", values.children);
@@ -123,7 +124,7 @@ function SearchForm() {
                         name="dates"
                         variant={"outline"}
                         className={cn(
-                          "w-full lg:w-[300px] justify-start text-left font-normal",
+                          "justify-start text-left font-normal",
                           !field.value.from && "text-muted-foreground"
                         )}
                       >
