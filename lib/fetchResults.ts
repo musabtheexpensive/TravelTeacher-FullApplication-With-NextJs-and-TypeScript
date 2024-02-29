@@ -15,6 +15,7 @@ export async function fetchResults(searchParams: SearchParams) {
       url.searchParams.append(key, value);
     }
   });
+  
   console.log("scraping url >>>", url.href);
 
   const body = {
